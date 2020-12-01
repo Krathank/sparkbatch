@@ -35,8 +35,8 @@ if __name__ == '__main__':
           .csv(args.input))
     df.registerTempTable("airlines")
     result = spark.sql("""
-      select Year, Month, DayofMonth, avg(ArrDelay) as avg_ArrDelay, avg(DepDelay) as avg_DepDelay
+      select year, month, DayofMonth, avg(ArrDelay) as avg_ArrDelay, avg(DepDelay) as avg_DepDelay
       from airlines 
-      group by Year, Month, DayofMonth
+      group by year, month, DayofMonth
 """)
     result.repartition(1).write.mode("overwrite").parquet(args.output)
