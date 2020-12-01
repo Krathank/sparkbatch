@@ -3,7 +3,7 @@ FROM python:3.6
 # Install OpenJDK 8, and monitoring tooling
 RUN \
   apt-get update && \
-  apt-get install -y openjdk-8-jdk htop bmon && \
+  apt-get install -y default-jre htop bmon && \
   rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade setuptools
